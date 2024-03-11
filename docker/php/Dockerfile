@@ -34,6 +34,11 @@ RUN set -eux; \
     docker-php-ext-install gd; \
     docker-php-ext-install intl;
 
+# Install Composer
+RUN set -eux; \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
 WORKDIR /var/www/html
 
 COPY . /var/www/html
