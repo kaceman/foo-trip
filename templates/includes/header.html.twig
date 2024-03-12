@@ -18,7 +18,7 @@
             <a href="{{ path('app_home') }}" class="text-sm font-semibold leading-6 text-gray-900 {% if app.request.attributes.get('_route') == 'app_home' %}underline{% endif %}">Destinations Honeymoon</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Admin <span aria-hidden="true">&rarr;</span></a>
+            <a href="{{ path('app_admin') }}" class="text-sm font-semibold leading-6 text-gray-900">Admin <span aria-hidden="true">&rarr;</span></a>
         </div>
     </nav>
 </header>
