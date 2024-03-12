@@ -1,9 +1,40 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Dashboard{% endblock %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block content %}
-    <h2>Welcome, {{ app.user.username }}!</h2>
-    <p>This is the admin dashboard.</p>
-    <a href="{{ path('app_logout') }}">Logout</a>
+    <div class="container mx-auto">
+        <div class="flex flex-col mt-8 px-4">
+            <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                <a href="{{ path('app_destination_new') }}" class="inline-block mb-5 hover:curso rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">+ New Destination</a>
+                <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+                    <table class="min-w-full">
+                        <thead>
+                        <tr>
+                            <th
+                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                Name</th>
+                            <th
+                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                Description</th>
+                            <th
+                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                Price</th>
+                            <th
+                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                Duration</th>
+                            <th
+                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                Delete</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="bg-white">
+                            {% for destination in destinations %}
+                                {% include 'admin/destination_line.html.twig' %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

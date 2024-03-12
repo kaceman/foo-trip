@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+
+<body>
+<div class="flex h-screen">
+    {% include 'admin/header.html.twig' %}
+    <div class="w-full pb-2 bg-gray-200 lg:w-full">
+        <div class="py-4 px-3 w-full bg-white">
+            <div class="lg:flex lg:flex-1 lg:justify-end">
+                <a href="{{ path('app_logout') }}" class="block text-sm font-semibold leading-6 text-gray-900">Logout</a>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
+
+</html>
